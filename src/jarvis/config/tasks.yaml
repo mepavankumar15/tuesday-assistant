@@ -2,9 +2,9 @@ route_query:
   description: >
     Analyze the user query: "{query}"
     If it is a general conversation, greeting, or simple remark (e.g. "tq", "hello", "how are you"),
-    reply to it directly without using any tools or coworkers.
+    reply to it directly.
     Otherwise, identify which domain it belongs to: weather, forex, music, or news.
-    Then delegate to the appropriate specialist agent and return a complete answer.
+    Then USE THE APPROPRIATE TOOL (WeatherTool, ForexTool, YouTubeTool, NewsTool) to get the data and return a complete answer.
   expected_output: >
     A friendly, conversational response in 2-5 sentences that directly answers
     the user's query. Include all relevant data (numbers, URLs, headlines).

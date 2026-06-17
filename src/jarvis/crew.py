@@ -80,14 +80,15 @@ class JarvisCrew:
             max_iter=3,
         )
 
-        # Supervisor has access to delegate
+        # Supervisor has access to all tools to directly answer without delegation
         self.supervisor = Agent(
             role=cfg["supervisor"]["role"],
             goal=cfg["supervisor"]["goal"],
             backstory=cfg["supervisor"]["backstory"],
+            tools=[self.weather_tool, self.forex_tool, self.youtube_tool, self.news_tool],
             llm=self.llm,
             verbose=True,
-            allow_delegation=True,
+            allow_delegation=False,
             max_iter=5,
         )
 
@@ -101,19 +102,14 @@ class JarvisCrew:
 
         routing_task = Task(
             description=task_cfg["description"].format(query=query),
-            expected_output=task_cfg["expected_output"]
+            expected_output=task_cfg["expected_output"],
+            agent=self.supervisor
         )
 
         crew = Crew(
-            agents=[
-                self.weather_agent,
-                self.forex_agent,
-                self.music_agent,
-                self.news_agent,
-            ],
+            agents=[self.supervisor],
             tasks=[routing_task],
-            process=Process.hierarchical,
-            manager_agent=self.supervisor,
+            process=Process.sequential,
             verbose=True,
         )
 
