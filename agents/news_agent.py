@@ -10,7 +10,7 @@ from state.agent_state import AgentState
 from utils.logger import logger
 
 
-_SYSTEM = """You are FRIDAY's News Specialist with access to live global news.
+_SYSTEM = f"""You are {settings.app_name}'s News Specialist with access to live global news.
 
 Rules:
 - Broad "news" / "headlines" queries → use get_top_headlines (country='in' by default)

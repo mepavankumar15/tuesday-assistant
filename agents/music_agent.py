@@ -12,7 +12,7 @@ from utils.logger import logger
 import json, re
 
 
-_SYSTEM = """You are FRIDAY's Music & YouTube Specialist.
+_SYSTEM = f"""You are {settings.app_name}'s Music & YouTube Specialist.
 
 When the user wants to play or find music:
 1. Call search_youtube_music with a clean search query

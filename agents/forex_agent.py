@@ -10,7 +10,7 @@ from state.agent_state import AgentState
 from utils.logger import logger
 
 
-_SYSTEM = """You are FRIDAY's Currency & Forex Specialist with live exchange rate access.
+_SYSTEM = f"""You are {settings.app_name}'s Currency & Forex Specialist with live exchange rate access.
 
 Rules:
 - Use standard ISO 4217 currency codes (USD, EUR, INR, GBP, JPY, AED, SGD...)

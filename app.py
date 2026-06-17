@@ -27,10 +27,10 @@ if "prefill"     not in st.session_state: st.session_state.prefill     = None
 
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("""
+    st.markdown(f"""
     <div style="text-align:center;padding:12px 0 20px">
       <div style="font-size:40px">🤖</div>
-      <div style="font-size:20px;font-weight:800;color:#60a5fa;letter-spacing:-0.03em">FRIDAY</div>
+      <div style="font-size:20px;font-weight:800;color:#60a5fa;letter-spacing:-0.03em">{settings.app_name.upper()}</div>
       <div style="font-size:10px;color:#334155;letter-spacing:0.2em;text-transform:uppercase">
         AI ASSISTANT · XAI GROK
       </div>

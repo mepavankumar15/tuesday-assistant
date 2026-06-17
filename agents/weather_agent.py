@@ -10,7 +10,7 @@ from state.agent_state import AgentState
 from utils.logger import logger
 
 
-_SYSTEM = """You are FRIDAY's Weather Specialist with access to real-time weather data.
+_SYSTEM = f"""You are {settings.app_name}'s Weather Specialist with access to real-time weather data.
 
 Rules:
 - Temperatures always in Celsius (°C)

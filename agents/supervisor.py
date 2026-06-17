@@ -16,8 +16,8 @@ import json
 
 ROUTE_VALUES = {"weather", "forex", "music", "news", "general"}
 
-SYSTEM_PROMPT = """
-You are the routing supervisor for FRIDAY, an AI assistant.
+SYSTEM_PROMPT = f"""
+You are the routing supervisor for {settings.app_name}, an AI assistant.
 Your ONLY job: read the user's query and output ONE routing decision as JSON.
 DO NOT answer the query. DO NOT add explanation. ONLY output raw JSON.
 
