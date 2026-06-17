@@ -1,5 +1,5 @@
 """
-FRIDAY AI Assistant — Streamlit Application
+TUESDAY AI Assistant — Streamlit Application
 Run: streamlit run app.py
 """
 import streamlit as st
@@ -58,7 +58,7 @@ with st.sidebar:
 
 # ── Main chat area ───────────────────────────────────────────────────────────
 st.markdown("<div class='friday-header'>", unsafe_allow_html=True)
-st.markdown("<div class='friday-title'>FRIDAY</div>", unsafe_allow_html=True)
+st.markdown("<div class='friday-title'>TUESDAY</div>", unsafe_allow_html=True)
 st.markdown("<div class='friday-sub'>Intelligent Assistant</div>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -74,7 +74,7 @@ for msg in st.session_state.messages:
             st.markdown(msg["content"])
 
 # ── Input handling ───────────────────────────────────────────────────────────
-if query := st.chat_input("Ask FRIDAY..."):
+if query := st.chat_input("Ask TUESDAY..."):
     # Append user message
     st.session_state.messages.append({"role": "user", "content": query})
     st.session_state.lc_history.append(HumanMessage(content=query))
