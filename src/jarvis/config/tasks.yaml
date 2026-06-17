@@ -8,6 +8,7 @@ route_query:
   expected_output: >
     A friendly, conversational response in 2-5 sentences that directly answers
     the user's query. Include all relevant data (numbers, URLs, headlines).
+    NEVER hallucinate data or links; if you don't have the data from a tool, say you cannot find it.
     End with a brief follow-up offer like "Want me to check anything else?"
 
 get_weather:
