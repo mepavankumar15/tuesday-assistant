@@ -147,9 +147,6 @@ if "crew" not in st.session_state:
     with st.spinner("Initializing JARVIS..."):
         st.session_state.crew = JarvisCrew()
 
-if "youtube_url" not in st.session_state:
-    st.session_state.youtube_url = None
-
 if "city" not in st.session_state:
     st.session_state.city = os.getenv("DEFAULT_CITY", "Hyderabad")
     
@@ -255,15 +252,6 @@ with col_left:
         </div>
         """, unsafe_allow_html=True)
 
-    # YouTube Player (if active)
-    if st.session_state.youtube_url:
-        st.markdown("""
-        <div class="glass-card" style="padding: 10px;">
-            <h4 style="margin-top: 0; margin-bottom: 10px; padding: 10px;">🎵 Now Playing</h4>
-        </div>
-        """, unsafe_allow_html=True)
-        st.video(st.session_state.youtube_url)
-
 
 # --- Right Column: Agent Monitor & Settings ---
 with col_right:
@@ -314,6 +302,9 @@ with col_main:
         for msg in st.session_state.messages:
             with st.chat_message(msg["role"]):
                 st.markdown(msg["content"])
+                if msg.get("youtube_url"):
+                    from streamlit_player import st_player
+                    st_player(msg["youtube_url"], playing=True)
 
     # Process Input
     prompt = st.chat_input("Type your message here...", key="text_input")
@@ -337,25 +328,32 @@ with col_main:
                         response_text = result["response"]
                         
                         # Hack to check if music tool was called and returned a url
+                        extracted_url = None
                         if "youtube.com" in response_text or "youtu.be" in response_text:
                             import re
                             urls = re.findall(r'(https?://[^\s]+)', response_text)
                             for url in urls:
                                 if "youtube.com" in url or "youtu.be" in url:
-                                    st.session_state.youtube_url = url
+                                    # clean up trailing punctuation
+                                    extracted_url = url.rstrip(').,')
                                     break
                                     
                         status.update(label="Response ready", state="complete", expanded=False)
                     except Exception as e:
                         response_text = f"I encountered an error: {str(e)}"
+                        extracted_url = None
                         status.update(label="Error occurred", state="error", expanded=False)
 
                 st.markdown(response_text)
+                if extracted_url:
+                    from streamlit_player import st_player
+                    st_player(extracted_url, playing=True)
 
         # Add assistant response to history
         st.session_state.messages.append({
             "role": "assistant", 
-            "content": response_text
+            "content": response_text,
+            "youtube_url": extracted_url
         })
         st.rerun()
 
