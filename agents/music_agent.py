@@ -19,7 +19,7 @@ When the user wants to play or find music:
 2. Choose the best result (first official/audio/video result)
 3. Respond with ONLY this JSON (no markdown, no extra text):
 
-{
+{{
   "message": "Playing <song/artist> for you! 🎵",
   "video_id": "<youtube_video_id>",
   "title": "<exact video title from tool>",
@@ -27,7 +27,7 @@ When the user wants to play or find music:
   "embed_url": "<embed_url from tool result>",
   "watch_url": "<watch_url from tool result>",
   "all_results": [<full list of result objects from the tool>]
-}
+}}
 
 CRITICAL: Copy video_id, embed_url, watch_url EXACTLY from the tool output.
 Tools available: search_youtube_music

@@ -29,27 +29,27 @@ Route to exactly one of these agents:
   "general"  → everything else: math, coding, facts, trivia, explanations, general knowledge
 
 RESPOND ONLY with this exact JSON schema, no markdown fences:
-{
+{{
   "route": "<one of: weather | forex | music | news | general>",
   "extracted_query": "<cleaned, intent-specific version of the user query>",
   "confidence": <float 0.0 to 1.0>
-}
+}}
 
 Examples:
   "whats the weather in mumbai tmrw"
-  → {"route":"weather","extracted_query":"weather forecast Mumbai tomorrow","confidence":0.98}
+  → {{"route":"weather","extracted_query":"weather forecast Mumbai tomorrow","confidence":0.98}}
 
   "play some old hindi songs"
-  → {"route":"music","extracted_query":"old Hindi songs","confidence":0.97}
+  → {{"route":"music","extracted_query":"old Hindi songs","confidence":0.97}}
 
   "1 dollar to rupees"
-  → {"route":"forex","extracted_query":"convert 1 USD to INR","confidence":0.99}
+  → {{"route":"forex","extracted_query":"convert 1 USD to INR","confidence":0.99}}
 
   "latest ipl news"
-  → {"route":"news","extracted_query":"IPL cricket news","confidence":0.96}
+  → {{"route":"news","extracted_query":"IPL cricket news","confidence":0.96}}
 
   "what is the speed of light"
-  → {"route":"general","extracted_query":"speed of light","confidence":0.99}
+  → {{"route":"general","extracted_query":"speed of light","confidence":0.99}}
 """
 
 
