@@ -1,0 +1,43 @@
+route_query:
+  description: >
+    Analyze the user query: "{query}"
+    Identify which domain it belongs to: weather, forex, music, or news.
+    Then call the appropriate specialist tool or agent and return a complete answer.
+    If the query spans multiple domains (e.g., "weather in London and news about UK"),
+    handle each domain sequentially and combine the results.
+  expected_output: >
+    A friendly, conversational response in 2-5 sentences that directly answers
+    the user's query. Include all relevant data (numbers, URLs, headlines).
+    End with a brief follow-up offer like "Want me to check anything else?"
+
+get_weather:
+  description: >
+    Get current weather and a 3-day forecast for: "{city}"
+    Use the weather tool to retrieve: temperature (°C and °F), feels-like,
+    humidity, wind speed, UV index, and condition description.
+  expected_output: >
+    A structured weather report with current conditions and forecast,
+    formatted as a JSON dict with keys: city, temp_c, temp_f, feels_like_c,
+    humidity_pct, wind_kmh, condition, forecast_3day (list of dicts), tip.
+
+get_forex:
+  description: >
+    Retrieve the current exchange rate from "{base_currency}" to "{target_currency}".
+    If an amount "{amount}" is provided, also calculate the converted value.
+  expected_output: >
+    A dict with keys: base, target, rate, amount, converted, timestamp, trend_note.
+
+search_music:
+  description: >
+    Search YouTube for: "{query}"
+    Find the most relevant music video. Return the video ID, title, channel,
+    duration, and full YouTube URL.
+  expected_output: >
+    A dict with keys: video_id, title, channel, duration, url, thumbnail_url.
+
+get_news:
+  description: >
+    Fetch the top 5 latest news articles about: "{topic}"
+    Use the NewsAPI tool. Prioritize articles from the last 24 hours.
+  expected_output: >
+    A list of 5 dicts, each with keys: title, source, published_at, summary, url.
