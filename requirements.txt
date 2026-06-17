@@ -1,0 +1,22 @@
+# LangChain / LangGraph core
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-openai>=0.3.0
+langgraph>=0.2.0
+langchain-community>=0.3.0
+
+# Streamlit
+streamlit>=1.40.0
+
+# HTTP
+requests
+httpx
+
+# Config
+pydantic
+pydantic-settings
+python-dotenv
+
+# Utilities
+loguru
+tenacity
