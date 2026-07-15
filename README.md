@@ -40,6 +40,19 @@ python cli.py
 ```bash
 streamlit run streamlit_app.py
 ```
+*(If `streamlit` command is not recognized on Windows, run `python -m streamlit run streamlit_app.py`)*
+
+### 4. Stopping & Troubleshooting
+
+**Stopping the App:**
+- Press `Ctrl + C` in your terminal to stop either `cli.py` or `streamlit_app.py`.
+
+**If `Ctrl + C` is unresponsive on Windows:**
+1. Press `Ctrl + Pause/Break` inside the terminal window.
+2. Or open a new terminal window and run:
+   ```powershell
+   taskkill /IM python.exe /F
+   ```
 
 ## Docker
 
