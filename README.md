@@ -72,10 +72,16 @@ Opens Streamlit at **http://localhost:8501**.
 ## Project Structure
 ```
 grok-assistant/
-├── cli.py              ← Terminal chatbot
-├── streamlit_app.py    ← Streamlit web UI
-├── agent.py            ← LangChain agent (Grok LLM)
-├── tools/
+├── cli.py                     ← Terminal chatbot
+├── streamlit_app.py           ← Streamlit web UI
+├── agent.py                   ← Facade entry point exporting run_agent
+├── agents/                    ← Multi-Agent Layer (AI Reasoning & Orchestration)
+│   ├── supervisor_agent.py    ← Top-level Orchestrator
+│   ├── media_agent.py         ← YouTube/Music Specialist Sub-Agent
+│   ├── finance_weather_agent.py ← Weather & Forex Specialist Sub-Agent
+│   ├── news_agent.py          ← News Specialist Sub-Agent
+│   └── llm.py                 ← Shared Grok LLM factory
+├── tools/                     ← Physical Tools Layer (Raw API Connectors)
 │   ├── youtube_tool.py
 │   ├── weather_tool.py
 │   ├── forex_tool.py
