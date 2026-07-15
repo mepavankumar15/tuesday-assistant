@@ -8,7 +8,7 @@ from agent import run_agent
 
 # ─── Page Config ───────────────────────────────────────────
 st.set_page_config(
-    page_title="Grok Assistant",
+    page_title="Alex Assistant",
     page_icon="🤖",
     layout="centered",
     initial_sidebar_state="expanded",
@@ -50,16 +50,15 @@ st.markdown("""
 
 # ─── Sidebar ───────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🤖 Grok Assistant")
-    st.caption("Alexa-like AI • Powered by xAI Grok")
+    st.markdown("## 🤖 Alex Assistant")
+    st.caption("Alexa-like AI • Multi-Agent System")
     st.divider()
 
-    st.markdown("### 🛠️ Tools")
+    st.markdown("### 🛠️ Specialist Agents")
     st.markdown("""
-    - 🎵 **YouTube** — search & play music/videos
-    - 🌤️ **Weather** — live weather for any city
-    - 💱 **Forex** — currency exchange rates
-    - 📰 **News** — search news & top headlines
+    - 🎵 **Media Specialist** — search & play YouTube
+    - 🌤️/💱 **Finance & Weather Specialist** — live weather & forex
+    - 📰 **News Specialist** — current events & headlines
     """)
 
     st.divider()
@@ -82,7 +81,7 @@ if "messages" not in st.session_state:
 
 # ─── Header ────────────────────────────────────────────────
 st.markdown(
-    "<h1 style='text-align:center; color:#7c7cff;'>🤖 Grok Assistant</h1>"
+    "<h1 style='text-align:center; color:#7c7cff;'>🤖 Alex Assistant</h1>"
     "<p style='text-align:center; color:#888; margin-bottom:1.5rem;'>"
     "Ask me anything — weather, news, music, currencies, or just chat!</p>",
     unsafe_allow_html=True,
@@ -105,7 +104,7 @@ for msg in st.session_state.messages:
             )
 
 # ─── Chat Input ────────────────────────────────────────────
-if prompt := st.chat_input("Ask Grok something..."):
+if prompt := st.chat_input("Ask Alex something..."):
     # Show user message
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):

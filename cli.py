@@ -28,11 +28,11 @@ from agent import run_agent
 BANNER = f"""
 {Fore.CYAN}╔══════════════════════════════════════════════════════╗
 ║                                                      ║
-║   {Fore.YELLOW}🤖  G R O K   A S S I S T A N T{Fore.CYAN}                     ║
-║   {Fore.WHITE}Alexa-like AI  •  Powered by xAI Grok{Fore.CYAN}              ║
+║   {Fore.YELLOW}🤖  A L E X   A S S I S T A N T{Fore.CYAN}                     ║
+║   {Fore.WHITE}Multi-Agent System  •  Powered by xAI Grok{Fore.CYAN}         ║
 ║                                                      ║
 ╠══════════════════════════════════════════════════════╣
-║  {Fore.GREEN}Tools:{Fore.WHITE} YouTube • Weather • Forex • News{Fore.CYAN}             ║
+║  {Fore.GREEN}Specialists:{Fore.WHITE} Media • Finance/Weather • News{Fore.CYAN}          ║
 ║  {Fore.GREEN}Commands:{Fore.WHITE} 'clear' reset  |  'exit' quit{Fore.CYAN}             ║
 ╚══════════════════════════════════════════════════════╝
 {Style.RESET_ALL}"""
@@ -113,7 +113,7 @@ def main():
             except Exception:
                 pass
 
-        print(f"\n{Fore.CYAN}Grok ❯ {Style.RESET_ALL}{display_text}\n")
+        print(f"\n{Fore.CYAN}Alex ❯ {Style.RESET_ALL}{display_text}\n")
 
         # --- Update history ---
         chat_history.append({"role": "user", "content": user_input})

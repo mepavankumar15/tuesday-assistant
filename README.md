@@ -1,14 +1,14 @@
-# Grok Assistant
+# Alex Assistant (Multi-Agent System)
 
-An Alexa-like AI assistant powered by xAI's Grok model.
+An Alexa-like AI assistant powered by xAI's Grok model and built with a **Hierarchical Supervisor-Specialist Multi-Agent Architecture**.
 Available as a **CLI terminal chatbot** and a **Streamlit web app**.
 
-## Features
-- 🎵 YouTube search & playback links
-- 🌤️ Live weather by city
-- 💱 Forex exchange rates
-- 📰 News search & top headlines (NewsAPI.org)
-- 💬 General AI conversation
+## Multi-Agent Architecture
+Instead of a single monolithic agent, **Alex Assistant** uses a coordinating **Supervisor Agent** that delegates domain queries to autonomous specialized sub-agents:
+- 🎵 **Media Specialist Agent**: Autonomous agent managing YouTube music/video search & playback links.
+- 🌤️/💱 **Finance & Weather Specialist Agent**: Autonomous agent managing live weather conditions & foreign exchange rates.
+- 📰 **News Specialist Agent**: Autonomous agent managing topic news search & top daily headlines (`NewsAPI.org`).
+- 💬 **Supervisor / Orchestrator Agent**: Routes queries, synthesizes multi-specialist outputs, and handles conversational AI directly.
 
 ## Quick Start
 
